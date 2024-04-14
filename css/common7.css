@@ -59,3 +59,21 @@
 .color-palette .item:hover {
   transform: scale(1.1);
 }
+.btn {
+  background-color: aqua;
+  width: 100px;
+  height: 100px;
+  margin: 10px 10px;
+}
+
+.btn-start {
+  width: 120px;
+  height: 50px;
+}
+
+.set-interval {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-left: 20px;
+}

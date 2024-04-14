@@ -89,3 +89,99 @@ numbers.addEventListener("click", () => {
   console.log(_.shuffle([1, 2, 3, 4])); // [4, 1, 3, 2]
   console.log(_.shuffle([1, 2, 3, 4])); // [3, 2, 1, 4]
 });
+
+const buttonClickMe = document.querySelector(".btn");
+const onClick = () => {
+  const timerId = setTimeout(() => {
+    console.log("I love async JS!");
+  }, 2000);
+  console.log(timerId);
+  //скасування таймауту
+  //clearTimeout(timerId);
+};
+buttonClickMe.addEventListener("click", onClick);
+
+//setInterval() clearInterval--------------------------------
+
+function seyHello() {
+  console.log(`Hello world`);
+}
+setTimeout(seyHello, 3000);
+setTimeout(seyHello, 1000);
+for (let i = 0; i < 10000; i++) {
+  console.log(i);
+}
+
+function seyHaha() {
+  console.log(`Haha`);
+}
+setTimeout(seyHaha, 2000);
+setTimeout(seyHaha, 4000);
+for (let i = 0; i < 10000; i++) {
+  console.log(i);
+}
+//---------------------------
+const startBtn = document.querySelector(".btn-start");
+const stopBtn = document.querySelector(".btn-stop");
+let intervalId = null;
+
+startBtn.addEventListener("click", () => {
+  intervalId = setInterval(() => {
+    console.log(`Interval ID: intervalId, ${Math.random()}`);
+  }, 1000);
+});
+
+stopBtn.addEventListener("click", () => {
+  clearInterval(intervalId);
+  console.log(`Interval with id ${intervalId} has stopped!`);
+});
+
+//створення дати
+const date = new Date();
+console.log(date);
+
+//тільки дата (без часу)
+
+//const dateWithoutTime = new Date("2028-06-02");
+//console.log(dateWithoutTime);
+
+//з 01.01.1970
+
+//console.log(new Date(0));
+//console.log(new Date(15000));
+
+//повертає кількість мілісекунд з 1.01.1970
+console.log(date.getTime());
+
+//коли потрібне тільки числове представлення часу
+//const time = Date.now();
+//console.log(time);
+
+//якщо хочемо виміряти, скільки часу займає виконання деякого коду
+
+const startTime = Date.now();
+//твій код
+
+for (let i = 0; i <= 100; i += 1) {
+  console.log(i);
+}
+const endTime = Date.now();
+const elapsedTime = endTime - startTime;
+
+console.log(`Elapsed time: ${elapsedTime} ms`);
+
+//проміси
+
+const isSuccess = true;
+
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    if (isSuccess) {
+      resolve("Success! Value passed to resolve function");
+    } else {
+      reject("Error! Error passed to reject function");
+    }
+  }, 1000);
+});
+
+console.log(promise); // Об'єкт промісу
